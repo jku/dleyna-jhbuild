@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <metamodule id="dleyna">
+    <dependencies>
+      <dep package="dleyna-server"/>
+      <dep package="dleyna-renderer"/>
+      <dep package="dleyna-connector-dbus"/>
+      <dep package="dleyna-control"/>
+      <dep package="cloudeebus"/>
+    </dependencies>
+  </metamodule>
+
+  <repository type="git" name="01" href="git://github.com/01org/"/>
+  <repository type="git" name="gnome" href="git://git.gnome.org/"/>
+
+
+  <!-- dleyna packages: use git master -->
+
+  <autotools id="dleyna-core"
+             autogen-sh="bootstrap-configure">
+    <branch repo="01" module="dleyna-core.git"/>
+    <dependencies>
+      <dep package="gupnp"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="dleyna-renderer"
+             autogen-sh="bootstrap-configure">
+    <branch repo="01" module="dleyna-renderer.git"/>
+    <dependencies>
+      <dep package="dleyna-core"/>
+      <dep package="gupnp-dlna"/>
+      <dep package="gupnp-av"/>
+      <dep package="gupnp"/>
+      <dep package="gssdp"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="dleyna-server"
+             autogen-sh="bootstrap-configure">
+    <branch repo="01" module="dleyna-server.git"/>
+    <dependencies>
+      <dep package="dleyna-core"/>
+      <dep package="gupnp-dlna"/>
+      <dep package="gupnp-av"/>
+      <dep package="gupnp"/>
+      <dep package="gssdp"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="dleyna-connector-dbus"
+             autogen-sh="bootstrap-configure">
+    <branch repo="01" module="dleyna-connector-dbus.git"/>
+    <dependencies>
+      <dep package="dleyna-core"/>
+    </dependencies>
+  </autotools>
+
+  <distutils id="dleyna-control">
+    <branch repo="01" module="dleyna-control.git"/>
+  </distutils>
+
+  <distutils id="cloudeebus">
+    <branch repo="01" module="cloudeebus.git"/>
+  </distutils>
+
+  <!-- dleyna-linux is not part of the default 'dleyna' set -->
+
+  <autotools id="dleyna-linux"
+             autogen-sh="bootstrap-configure">
+    <branch repo="01" module="dleyna-linux.git"/>
+    <dependencies>
+      <dep package="gupnp-dlna"/>
+      <dep package="gupnp-av"/>
+      <dep package="gupnp"/>
+      <dep package="gssdp"/>
+    </dependencies>
+  </autotools>
+
+
+
+  <!-- gupnp packages: use latest release -->
+
+  <autotools id="gupnp-dlna">
+    <branch repo="gnome" module="gupnp-dlna" tag="gupnp-dlna-0.10.0" />
+  </autotools>
+
+  <autotools id="gssdp">
+    <branch repo="gnome" module="gssdp" tag="gssdp-0.14.1" />
+  </autotools>
+
+  <autotools id="gupnp">
+    <branch repo="gnome" module="gupnp" tag="gupnp-0.20.0" />
+    <dependencies>
+      <dep package="gssdp"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="gupnp-av">
+    <branch repo="gnome" module="gupnp-av" tag="gupnp-av-0.12.0"/>
+    <dependencies>
+      <dep package="gupnp"/>
+    </dependencies>
+  </autotools>
+
+  <autotools id="gupnp-tools">
+    <branch repo="gnome" module="gupnp-tools" tag="gupnp-tools-0.8.5"/>
+  </autotools>
+
+  <!-- rygel is not part of the default 'dleyna' set -->
+
+  <autotools id="rygel" autogenargs="--enable-valadoc=no">
+    <branch repo="gnome" module="rygel" tag="RYGEL_0_17_8"/>
+    <dependencies>
+      <dep package="gupnp-dlna"/>
+      <dep package="gupnp-av"/>
+      <dep package="gupnp"/>
+      <dep package="gssdp"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>

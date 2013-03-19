@@ -1,0 +1,27 @@
+# -*- mode: python -*-
+# -*- coding: utf-8 -*-
+
+# what directory should the source be checked out to?
+checkoutroot = os.path.expanduser('~/intel/src/dleyna/src')
+
+# the prefix to configure/install modules to (must have write access)
+prefix = os.path.expanduser('~/intel/src/dleyna/root')
+
+# if you have a ssh account and want to override .modules repo url:
+# repos['01'] = 'ssh://git@github.com:01org/'
+
+# moduleset could be downloaded from e.g. github...
+# moduleset = 'dleyna'
+
+use_local_modulesets = True 
+
+# A list of the modules to build by default
+modules = [ 'dleyna' ]
+
+# custom CFLAGS / environment pieces for the build
+# os.environ['CFLAGS'] = '-Wall -g -O0'
+
+# extra arguments to pass to all modules
+#autogenargs=''
+#makeargs = '-j2'
+

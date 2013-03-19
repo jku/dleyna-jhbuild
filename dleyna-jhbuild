@@ -1,0 +1,3 @@
+#!/bin/sh
+
+~/.local/bin/jhbuild -f dleyna-jhbuildrc -m dleyna.modules $*
