@@ -7,7 +7,6 @@
     <dependencies>
       <dep package="dleyna-server"/>
       <dep package="dleyna-renderer"/>
-      <dep package="dleyna-connector-dbus"/>
       <dep package="dleyna-control"/>
       <dep package="cloudeebus"/>
     </dependencies>
@@ -27,11 +26,20 @@
     </dependencies>
   </autotools>
 
+  <autotools id="dleyna-connector-dbus"
+             autogen-sh="bootstrap-configure">
+    <branch repo="01" module="dleyna-connector-dbus.git"/>
+    <dependencies>
+      <dep package="dleyna-core"/>
+    </dependencies>
+  </autotools>
+
   <autotools id="dleyna-renderer"
              autogen-sh="bootstrap-configure">
     <branch repo="01" module="dleyna-renderer.git"/>
     <dependencies>
       <dep package="dleyna-core"/>
+      <dep package="dleyna-connector-dbus"/>
       <dep package="gupnp-dlna"/>
       <dep package="gupnp-av"/>
       <dep package="gupnp"/>
@@ -44,18 +52,11 @@
     <branch repo="01" module="dleyna-server.git"/>
     <dependencies>
       <dep package="dleyna-core"/>
+      <dep package="dleyna-connector-dbus"/>
       <dep package="gupnp-dlna"/>
       <dep package="gupnp-av"/>
       <dep package="gupnp"/>
       <dep package="gssdp"/>
-    </dependencies>
-  </autotools>
-
-  <autotools id="dleyna-connector-dbus"
-             autogen-sh="bootstrap-configure">
-    <branch repo="01" module="dleyna-connector-dbus.git"/>
-    <dependencies>
-      <dep package="dleyna-core"/>
     </dependencies>
   </autotools>
 
@@ -105,6 +106,8 @@
       <dep package="gupnp"/>
     </dependencies>
   </autotools>
+
+  <!-- gupnp-tools is not part of the default 'dleyna' set -->
 
   <autotools id="gupnp-tools">
     <branch repo="gnome" module="gupnp-tools" tag="gupnp-tools-0.8.5"/>
