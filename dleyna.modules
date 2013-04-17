@@ -111,6 +111,10 @@
 
   <autotools id="gupnp-tools">
     <branch repo="gnome" module="gupnp-tools" tag="gupnp-tools-0.8.5"/>
+    <dependencies>
+      <dep package="gupnp"/>
+      <dep package="gssdp"/>
+    </dependencies>
   </autotools>
 
   <!-- rygel is not part of the default 'dleyna' set -->
