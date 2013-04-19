@@ -90,18 +90,18 @@
   </autotools>
 
   <autotools id="gssdp">
-    <branch repo="gnome" module="gssdp" tag="gssdp-0.14.1" />
+    <branch repo="gnome" module="gssdp" tag="gssdp-0.14.2" />
   </autotools>
 
   <autotools id="gupnp">
-    <branch repo="gnome" module="gupnp" tag="gupnp-0.20.0" />
+    <branch repo="gnome" module="gupnp" tag="fcb4ff74c05b021e6341fa93416eb0f02edb82ad" />
     <dependencies>
       <dep package="gssdp"/>
     </dependencies>
   </autotools>
 
   <autotools id="gupnp-av">
-    <branch repo="gnome" module="gupnp-av" tag="gupnp-av-0.12.0"/>
+    <branch repo="gnome" module="gupnp-av" tag="gupnp-av-0.12.1"/>
     <dependencies>
       <dep package="gupnp"/>
     </dependencies>
@@ -110,7 +110,7 @@
   <!-- gupnp-tools is not part of the default 'dleyna' set -->
 
   <autotools id="gupnp-tools">
-    <branch repo="gnome" module="gupnp-tools" tag="gupnp-tools-0.8.5"/>
+    <branch repo="gnome" module="gupnp-tools" tag="gupnp-tools-0.8.6.1"/>
     <dependencies>
       <dep package="gupnp"/>
       <dep package="gssdp"/>
@@ -120,7 +120,7 @@
   <!-- rygel is not part of the default 'dleyna' set -->
 
   <autotools id="rygel" autogenargs="--enable-valadoc=no">
-    <branch repo="gnome" module="rygel" tag="RYGEL_0_17_8"/>
+    <branch repo="gnome" module="rygel" tag="RYGEL_0_18_1"/>
     <dependencies>
       <dep package="gupnp-dlna"/>
       <dep package="gupnp-av"/>
